@@ -49,5 +49,3 @@ The script completes the following tasks:
 ### Usage:
 
 ```python3 install_ansible.py```
-
-asdf
