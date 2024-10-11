@@ -125,8 +125,8 @@ def ansillary_setup():
 def test_setup():
     try:
         print("Activating the Virtual Environment & Pinging the Localhost!\n")
-        activate = f'/home/{ansible_user}/{virt_env}/bin/activate'
-        ping = f"source {activate} && ansible -m ping localhost"
+        activate = f'source /home/{ansible_user}/{virt_env}/bin/activate'
+        ping = f"{activate} && ansible -m ping localhost"
         ping_status = run(ping, shell=True, executable="/bin/bash")
         if not ping_status.returncode:
             print("\nAnsible Ping Module Test Succeeded!\n")
@@ -158,6 +158,7 @@ def test_setup():
         encrypt_cmd = f'ansible-vault encrypt {vars_file}'
         print("\nAnsible Setup is Now Complete!\n")
         print(f"Once Variables are Added, Encrypt the 'group_vars/all.yml' File with:\n\n{encrypt_cmd}\n")
+        print(f"The Virtual Environment can be Activated by Issuing the Command:\n\n{activate}\n")
     except:
         print("Something Went Wrong During Setup Verification!\n\nExiting...\n")
         exit()
